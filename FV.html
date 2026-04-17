@@ -114,6 +114,13 @@
   }
   .nav-back:hover { color: var(--accent); }
 
+    /* STARS */
+  .card-stars { color: #f5a623; font-size: 0.78rem; margin-bottom: 6px; letter-spacing: 1px; }
+  .card-stars span { color: var(--text-muted); font-size: 0.72rem; font-family:'Cairo',sans-serif; }
+
+  /* DISCOUNT BADGE */
+  .card-badge.discount { background: var(--accent3); }
+
   /* HERO BANNER */
   .page-hero {
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
@@ -600,15 +607,15 @@
           v-for="(p, i) in filteredProducts" :key="p.id"
           :style="{ animationDelay: i * 0.05 + 's' }"
           @click="openModal(p)">
-
           <div class="card-img" :style="{ background: p.bgLight }">
             <span>{{ p.icon }}</span>
-            <div class="card-badge" v-if="p.badge">{{ p.badge }}</div>
+            <div class="card-badge" v-if="p.badge" :class="{ discount: p.discount > 0 }">{{ p.badge }}</div>
+            <div class="card-badge discount" v-if="!p.badge && p.discount > 0">خصم {{ p.discount }}%</div>
           </div>
-
           <div class="card-body">
             <div class="card-category">{{ p.category }}</div>
             <div class="card-title">{{ p.name }}</div>
+            <div class="card-stars">{{ '★'.repeat(Math.floor(p.rating)) }}{{ p.rating % 1 ? '½' : '' }}{{ '☆'.repeat(5 - Math.ceil(p.rating)) }} <span>({{ p.reviews }})</span></div>
             <div class="card-desc">{{ p.shortDesc }}</div>
             <div class="card-footer">
               <div class="card-price">
