@@ -681,7 +681,14 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
   setup() {
+    const quoteItems = ref([]);
+const quoteCount = computed(() => quoteItems.value.length);
     const search = ref('');
+    const isDark = ref(false);
+  function toggleDark() {
+  isDark.value = !isDark.value;
+  document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : '');
+}
     const activeCategory = ref('الكل');
     const sortBy = ref('default');
     const viewMode = ref('grid');
@@ -850,10 +857,11 @@ createApp({
     function openModal(p) { selectedProduct.value = p; }
 
     function addToQuote(p) {
-      notifMsg.value = `✅ تم إضافة "${p.name}" لطلب العرض`;
-      notifShow.value = true;
-      setTimeout(() => { notifShow.value = false; }, 3000);
-    }
+  quoteItems.value.push(p);
+  notifMsg.value = `✅ تم إضافة "${p.name}" لطلب العرض`;
+  notifShow.value = true;
+  setTimeout(() => { notifShow.value = false; }, 3000);
+}
 
     return {
       search, activeCategory, sortBy, viewMode,
