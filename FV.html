@@ -62,6 +62,10 @@
     border-bottom: 1px solid var(--border);
     padding: 14px 48px;
     display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.3s;
+  }
+  [data-theme="dark"] nav {
+    background: rgba(26,31,28,0.93);
   }
 
   .logo {
@@ -71,7 +75,7 @@
   }
   .logo span { color: var(--accent3); }
 
-    .nav-actions {
+  .nav-actions {
     display: flex; align-items: center; gap: 12px;
   }
 
@@ -114,7 +118,7 @@
   }
   .nav-back:hover { color: var(--accent); }
 
-    /* STARS */
+  /* STARS */
   .card-stars { color: #f5a623; font-size: 0.78rem; margin-bottom: 6px; letter-spacing: 1px; }
   .card-stars span { color: var(--text-muted); font-size: 0.72rem; font-family:'Cairo',sans-serif; }
 
@@ -154,106 +158,106 @@
 
   /* MAIN LAYOUT */
   .main-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 32px;
-    padding: 40px 48px;
+    display: block;
+    padding: 0 48px 40px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative; z-index: 1;
   }
 
-/* FILTERS TOP BAR */
-.filters-top {
-  position: relative; z-index: 1;
-  padding: 24px 48px 0;
-  max-width: 1400px; margin: 0 auto;
-}
+  /* FILTERS TOP BAR */
+  .filters-top {
+    position: relative; z-index: 1;
+    padding: 24px 48px 0;
+    max-width: 1400px; margin: 0 auto;
+  }
 
-.filters-row {
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 16px;
-  margin-bottom: 16px; flex-wrap: wrap;
-}
+  .filters-row {
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 16px;
+    margin-bottom: 16px; flex-wrap: wrap;
+  }
 
-.search-wrap {
-  position: relative; flex: 1; max-width: 360px;
-}
-.search-wrap input {
-  width: 100%;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px 44px 12px 16px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 0.92rem; color: var(--text);
-  outline: none; transition: all 0.3s;
-  direction: rtl;
-  box-shadow: 0 2px 8px rgba(61,122,95,0.06);
-}
-.search-wrap input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(61,122,95,0.1);
-}
-.search-icon {
-  position: absolute; left: 14px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted); font-size: 1rem;
-}
+  .search-wrap {
+    position: relative; flex: 1; max-width: 360px;
+  }
+  .search-wrap input {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px 12px 44px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.92rem; color: var(--text);
+    outline: none; transition: all 0.3s;
+    direction: rtl;
+    box-shadow: 0 2px 8px rgba(61,122,95,0.06);
+  }
+  .search-wrap input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(61,122,95,0.1);
+  }
+  .search-icon {
+    position: absolute; left: 14px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted); font-size: 1rem;
+    pointer-events: none;
+  }
 
-.sort-select {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 11px 14px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 0.9rem; color: var(--text);
-  outline: none; cursor: pointer;
-  direction: rtl;
-  box-shadow: 0 2px 8px rgba(61,122,95,0.06);
-}
+  .sort-select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 11px 14px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem; color: var(--text);
+    outline: none; cursor: pointer;
+    direction: rtl;
+    box-shadow: 0 2px 8px rgba(61,122,95,0.06);
+  }
 
-.cat-tabs {
-  display: flex; align-items: center;
-  gap: 8px; overflow-x: auto;
-  padding-bottom: 4px;
-  scrollbar-width: none;
-}
-.cat-tabs::-webkit-scrollbar { display: none; }
+  .cat-tabs {
+    display: flex; align-items: center;
+    gap: 8px; overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .cat-tabs::-webkit-scrollbar { display: none; }
 
-.cat-btn {
-  display: flex; align-items: center; gap: 7px;
-  padding: 9px 18px; border-radius: 100px;
-  border: 1px solid var(--border);
-  cursor: pointer; transition: all 0.25s;
-  font-family: 'Cairo', sans-serif;
-  font-size: 0.88rem; font-weight: 600;
-  background: var(--surface2); color: var(--text-muted);
-  white-space: nowrap; flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(61,122,95,0.05);
-}
-.cat-btn:hover { background: var(--bg); color: var(--text); border-color: var(--accent2); }
-.cat-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(61,122,95,0.3);
-}
-.cat-count {
-  background: rgba(255,255,255,0.25);
-  border-radius: 100px;
-  padding: 1px 8px;
-  font-size: 0.72rem;
-}
-.cat-btn:not(.active) .cat-count {
-  background: var(--surface);
-  color: var(--text-muted);
-}
+  .cat-btn {
+    display: flex; align-items: center; gap: 7px;
+    padding: 9px 18px; border-radius: 100px;
+    border: 1px solid var(--border);
+    cursor: pointer; transition: all 0.25s;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.88rem; font-weight: 600;
+    background: var(--surface2); color: var(--text-muted);
+    white-space: nowrap; flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(61,122,95,0.05);
+  }
+  .cat-btn:hover { background: var(--bg); color: var(--text); border-color: var(--accent2); }
+  .cat-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(61,122,95,0.3);
+  }
+  .cat-count {
+    background: rgba(255,255,255,0.25);
+    border-radius: 100px;
+    padding: 1px 8px;
+    font-size: 0.72rem;
+  }
+  .cat-btn:not(.active) .cat-count {
+    background: var(--surface);
+    color: var(--text-muted);
+  }
 
   /* RESULTS HEADER */
   .results-header {
     display: flex; align-items: center; justify-content: space-between;
     margin-bottom: 24px;
+    padding-top: 8px;
   }
   .results-count {
     font-size: 0.9rem; color: var(--text-muted);
@@ -361,7 +365,7 @@
   /* LIST VIEW CARD */
   .products-grid.list-view .product-card {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 140px 1fr;
   }
   .products-grid.list-view .card-img {
     height: 100%; font-size: 3rem;
@@ -376,6 +380,23 @@
   .empty-state .empty-icon { font-size: 4rem; margin-bottom: 16px; }
   .empty-state h3 { font-size: 1.2rem; margin-bottom: 8px; }
   .empty-state p { color: var(--text-muted); font-size: 0.9rem; }
+  .empty-state .reset-btn {
+    margin-top: 16px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .empty-state .reset-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
 
   /* MODAL */
   .modal-overlay {
@@ -488,6 +509,162 @@
     font-size: 0.78rem; font-weight: 600;
   }
 
+  /* QUOTE DRAWER */
+  .drawer-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    z-index: 250;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .drawer {
+    position: fixed;
+    top: 0; right: 0;
+    width: 380px; max-width: 90vw;
+    height: 100vh;
+    background: var(--surface2);
+    border-left: 1px solid var(--border);
+    box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+    z-index: 260;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    display: flex;
+    flex-direction: column;
+  }
+  .drawer.open {
+    transform: translateX(0);
+  }
+  .drawer-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .drawer-header h2 {
+    font-size: 1.3rem;
+    font-weight: 900;
+  }
+  .drawer-close {
+    width: 36px; height: 36px;
+    border-radius: 50%; border: 1px solid var(--border);
+    background: var(--bg); cursor: pointer;
+    font-size: 1rem; display: flex;
+    align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .drawer-close:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 24px;
+  }
+  .drawer-empty {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-muted);
+  }
+  .drawer-empty .emoji { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .drawer-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+  }
+  .drawer-item:hover {
+    border-color: var(--accent2);
+  }
+  .drawer-item-icon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .drawer-item-info {
+    flex: 1;
+  }
+  .drawer-item-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .drawer-item-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .drawer-item-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    color: var(--accent);
+  }
+  .drawer-item-remove {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .drawer-item-remove:hover {
+    background: #c9372d;
+    color: #fff;
+    border-color: #c9372d;
+  }
+  .drawer-footer {
+    padding: 20px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .drawer-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+  .drawer-total strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--accent);
+  }
+  .drawer-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .drawer-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(61,122,95,0.35);
+  }
+
   /* NOTIFICATION */
   .notif {
     position: fixed; bottom: 28px; left: 50%;
@@ -508,29 +685,30 @@
   ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 3px; }
 
   @media (max-width: 900px) {
-    .main-layout { grid-template-columns: 1fr; padding: 20px 16px; }
-    .filter-card { position: static; }
+    .main-layout { padding: 0 16px 20px; }
+    .filters-top { padding: 20px 16px 0; }
     nav { padding: 14px 20px; }
     .page-hero { padding: 48px 20px; }
     .hero-count { display: none; }
     .products-grid.list-view .product-card { grid-template-columns: 1fr; }
     .products-grid.list-view .card-img { height: 140px; }
+    .drawer { width: 100vw; max-width: 100vw; }
   }
 </style>
+<base target="_blank">
 </head>
 <body>
 <div id="app">
 
   <!-- NAV -->
-  
-   <nav>
+  <nav>
     <a href="plastic-company.html" class="logo">POLY<span>TECH</span></a>
     <div class="nav-actions">
       <a href="plastic-company.html" class="nav-back">← الرئيسية</a>
       <button class="dark-toggle" @click="toggleDark" :title="isDark ? 'وضع فاتح' : 'وضع داكن'">
         {{ isDark ? '☀️' : '🌙' }}
       </button>
-      <button class="cart-btn" v-if="quoteCount > 0">
+      <button class="cart-btn" v-if="quoteCount > 0" @click="showDrawer = true">
         🛒 طلباتي <span class="cart-count">{{ quoteCount }}</span>
       </button>
     </div>
@@ -546,43 +724,41 @@
     </div>
   </div>
 
-  <!-- MAIN -->
-  <div class="main-layout">
-
-    <!-- SIDEBAR -->
-   <!-- FILTERS TOP BAR -->
-<div class="filters-top">
-  <div class="filters-row">
-    <div class="search-wrap">
-      <input type="text" v-model="search" placeholder="ابحث عن منتج...">
-      <span class="search-icon">🔍</span>
+  <!-- FILTERS TOP BAR -->
+  <div class="filters-top">
+    <div class="filters-row">
+      <div class="search-wrap">
+        <input type="text" v-model="search" placeholder="ابحث عن منتج...">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <select class="sort-select" v-model="sortBy">
+          <option value="default">الافتراضي</option>
+          <option value="name">الاسم أ-ي</option>
+          <option value="price-asc">السعر: الأقل أولاً</option>
+          <option value="price-desc">السعر: الأعلى أولاً</option>
+        </select>
+        <button v-if="hasFilters" @click="resetFilters"
+          style="padding:10px 18px; border-radius:100px; border:1px dashed var(--accent); background:transparent; color:var(--accent); font-family:'Cairo',sans-serif; font-size:0.85rem; font-weight:600; cursor:pointer; white-space:nowrap;">
+          ✕ إعادة تعيين
+        </button>
+      </div>
     </div>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <select class="sort-select" v-model="sortBy">
-        <option value="default">الافتراضي</option>
-        <option value="name">الاسم أ-ي</option>
-        <option value="price-asc">السعر: الأقل أولاً</option>
-        <option value="price-desc">السعر: الأعلى أولاً</option>
-      </select>
-      <button v-if="hasFilters" @click="resetFilters"
-        style="padding:10px 18px; border-radius:100px; border:1px dashed var(--accent); background:transparent; color:var(--accent); font-family:'Cairo',sans-serif; font-size:0.85rem; font-weight:600; cursor:pointer; white-space:nowrap;">
-        ✕ إعادة تعيين
+
+    <div class="cat-tabs">
+      <button class="cat-btn" :class="{ active: activeCategory === 'الكل' }" @click="activeCategory = 'الكل'">
+        🗂️ الكل <span class="cat-count">{{ products.length }}</span>
+      </button>
+      <button class="cat-btn" v-for="cat in categories" :key="cat.name"
+        :class="{ active: activeCategory === cat.name }"
+        @click="activeCategory = cat.name">
+        {{ cat.icon }} {{ cat.name }} <span class="cat-count">{{ cat.count }}</span>
       </button>
     </div>
   </div>
 
-  <div class="cat-tabs">
-    <button class="cat-btn" :class="{ active: activeCategory === 'الكل' }" @click="activeCategory = 'الكل'">
-      🗂️ الكل <span class="cat-count">{{ products.length }}</span>
-    </button>
-    <button class="cat-btn" v-for="cat in categories" :key="cat.name"
-      :class="{ active: activeCategory === cat.name }"
-      @click="activeCategory = cat.name">
-      {{ cat.icon }} {{ cat.name }} <span class="cat-count">{{ cat.count }}</span>
-    </button>
-  </div>
-</div>
-
+  <!-- MAIN -->
+  <div class="main-layout">
     <!-- PRODUCTS AREA -->
     <div>
       <div class="results-header">
@@ -601,6 +777,7 @@
           <div class="empty-icon">🔎</div>
           <h3>لا توجد نتائج</h3>
           <p>جرّب كلمة بحث مختلفة أو غيّر الفئة</p>
+          <button class="reset-btn" @click="resetFilters">إعادة تعيين الفلاتر</button>
         </div>
 
         <div class="product-card"
@@ -615,7 +792,7 @@
           <div class="card-body">
             <div class="card-category">{{ p.category }}</div>
             <div class="card-title">{{ p.name }}</div>
-            <div class="card-stars">{{ '★'.repeat(Math.floor(p.rating)) }}{{ p.rating % 1 ? '½' : '' }}{{ '☆'.repeat(5 - Math.ceil(p.rating)) }} <span>({{ p.reviews }})</span></div>
+            <div class="card-stars">{{ '★'.repeat(Math.floor(p.rating || 0)) }}{{ ((p.rating || 0) % 1) ? '½' : '' }}{{ '☆'.repeat(5 - Math.ceil(p.rating || 0)) }} <span>({{ p.reviews || 0 }})</span></div>
             <div class="card-desc">{{ p.shortDesc }}</div>
             <div class="card-footer">
               <div class="card-price">
@@ -671,24 +848,62 @@
     </div>
   </div>
 
+  <!-- QUOTE DRAWER -->
+  <div class="drawer-overlay" :class="{ open: showDrawer }" @click="showDrawer = false"></div>
+  <div class="drawer" :class="{ open: showDrawer }">
+    <div class="drawer-header">
+      <h2>🛒 طلب عرض السعر</h2>
+      <button class="drawer-close" @click="showDrawer = false">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div v-if="quoteItems.length === 0" class="drawer-empty">
+        <span class="emoji">📭</span>
+        <p>لا توجد منتجات في طلبك</p>
+      </div>
+      <div v-else>
+        <div class="drawer-item" v-for="(item, idx) in quoteItems" :key="item.id + '-' + idx">
+          <div class="drawer-item-icon" :style="{ background: item.bgLight }">{{ item.icon }}</div>
+          <div class="drawer-item-info">
+            <div class="drawer-item-title">{{ item.name }}</div>
+            <div class="drawer-item-meta">{{ item.category }} · الحد الأدنى {{ item.minOrder }} وحدة</div>
+          </div>
+          <div class="drawer-item-price">{{ item.price }}</div>
+          <button class="drawer-item-remove" @click="removeFromQuote(idx)" title="إزالة">🗑</button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-footer" v-if="quoteItems.length > 0">
+      <div class="drawer-total">
+        <span>الإجمالي (تقديري)</span>
+        <strong>{{ quoteTotal }} ريال</strong>
+      </div>
+      <button class="drawer-submit" @click="submitQuote">إرسال طلب عرض السعر</button>
+    </div>
+  </div>
+
   <!-- NOTIF -->
   <div class="notif" :class="{ show: notifShow }">{{ notifMsg }}</div>
 
 </div>
 
 <script>
-const { createApp, ref, computed } = Vue;
+const { createApp, ref, computed, onMounted } = Vue;
 
 createApp({
   setup() {
     const quoteItems = ref([]);
-const quoteCount = computed(() => quoteItems.value.length);
+    const quoteCount = computed(() => quoteItems.value.length);
+    const quoteTotal = computed(() => quoteItems.value.reduce((sum, item) => sum + (item.price || 0), 0));
+    const showDrawer = ref(false);
+
     const search = ref('');
     const isDark = ref(false);
-  function toggleDark() {
-  isDark.value = !isDark.value;
-  document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : '');
-}
+    function toggleDark() {
+      isDark.value = !isDark.value;
+      document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : '');
+      localStorage.setItem('polytech_dark', isDark.value ? '1' : '');
+    }
+
     const activeCategory = ref('الكل');
     const sortBy = ref('default');
     const viewMode = ref('grid');
@@ -700,7 +915,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:1, name:'عبوات صناعية HDPE', category:'عبوات',
         icon:'🧴', bgLight:'rgba(61,122,95,0.08)',
-        badge:'الأكثر طلباً',
+        badge:'الأكثر طلباً', rating: 4.8, reviews: 124,
         shortDesc:'عبوات بلاستيكية عالية الكثافة مقاومة للمواد الكيميائية.',
         fullDesc:'عبوات HDPE صناعية متينة مصنوعة من مادة البولي إيثيلين عالي الكثافة، مثالية للتخزين والنقل في القطاعات الكيميائية والغذائية والصيدلانية. تتميز بمقاومتها العالية للحرارة والصدمات.',
         price: 45, minOrder: 100,
@@ -715,7 +930,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:2, name:'أنابيب PVC للصرف', category:'أنابيب',
         icon:'🔧', bgLight:'rgba(193,122,58,0.08)',
-        badge:'',
+        badge:'', rating: 4.5, reviews: 89,
         shortDesc:'أنابيب PVC صلبة لأنظمة الصرف الصحي والمياه.',
         fullDesc:'أنابيب PVC صلبة عالية الجودة مصنوعة وفق المواصفات العالمية، تُستخدم في أنظمة الصرف الصحي وشبكات المياه. تمتاز بعمر افتراضي طويل ومقاومة ممتازة للتآكل والضغط.',
         price: 28, minOrder: 50,
@@ -730,7 +945,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:3, name:'حاويات تخزين IBC', category:'حاويات',
         icon:'📦', bgLight:'rgba(106,170,133,0.1)',
-        badge:'جديد',
+        badge:'جديد', rating: 4.2, reviews: 34,
         shortDesc:'حاويات IBC ضخمة لتخزين ونقل السوائل الصناعية.',
         fullDesc:'حاويات IBC (Intermediate Bulk Container) بلاستيكية ضخمة مثالية لتخزين ونقل كميات كبيرة من السوائل الصناعية والكيميائية والغذائية. مزودة بصمام تفريغ ومنفذ ملء علوي.',
         price: 380, minOrder: 10,
@@ -745,7 +960,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:4, name:'أكياس طبية معقمة', category:'طبي',
         icon:'🏥', bgLight:'rgba(150,100,180,0.08)',
-        badge:'',
+        badge:'', rating: 4.9, reviews: 210,
         shortDesc:'أكياس بلاستيكية معقمة للاستخدامات الطبية والمستشفيات.',
         fullDesc:'أكياس بلاستيكية طبية معقمة مصنوعة من مواد خالية من BPA ومعتمدة للاستخدام الطبي. تُستخدم في حفظ الأدوية والمحاليل الطبية والمستلزمات الجراحية.',
         price: 12, minOrder: 500,
@@ -760,7 +975,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:5, name:'أفلام تغليف غذائي', category:'تغليف',
         icon:'🍱', bgLight:'rgba(200,160,60,0.08)',
-        badge:'',
+        badge:'', rating: 4.3, reviews: 76,
         shortDesc:'أفلام بلاستيكية شفافة لتغليف وحفظ المنتجات الغذائية.',
         fullDesc:'أفلام تغليف غذائية شفافة وعالية الجودة مصنوعة من البولي بروبيلين، مثالية لتغليف المنتجات الغذائية وإطالة فترة الصلاحية. متوفرة بأحجام وسماكات متعددة.',
         price: 8, minOrder: 1000,
@@ -775,7 +990,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:6, name:'ألواح EPS حرارية', category:'بناء',
         icon:'🏗️', bgLight:'rgba(80,130,180,0.08)',
-        badge:'',
+        badge:'', rating: 4.1, reviews: 52,
         shortDesc:'ألواح فوم EPS للعزل الحراري في مشاريع البناء.',
         fullDesc:'ألواح البولي ستيرين المتمدد (EPS) للعزل الحراري تُستخدم على نطاق واسع في مشاريع البناء والتشييد لتوفير عزل حراري ممتاز وتخفيض تكاليف الطاقة.',
         price: 55, minOrder: 20,
@@ -790,7 +1005,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:7, name:'صناديق نقل قابلة للطي', category:'حاويات',
         icon:'📫', bgLight:'rgba(106,170,133,0.1)',
-        badge:'عرض',
+        badge:'عرض', rating: 4.6, reviews: 98,
         shortDesc:'صناديق بلاستيكية قابلة للطي لتخزين ونقل البضائع.',
         fullDesc:'صناديق نقل بلاستيكية عملية قابلة للطي عند عدم الاستخدام مما يوفر مساحة تخزين كبيرة. مثالية للمستودعات وسلاسل التوريد والبيع بالتجزئة.',
         price: 35, minOrder: 50,
@@ -805,7 +1020,7 @@ const quoteCount = computed(() => quoteItems.value.length);
       {
         id:8, name:'أنابيب PPR للمياه الحارة', category:'أنابيب',
         icon:'🌊', bgLight:'rgba(193,122,58,0.08)',
-        badge:'',
+        badge:'', rating: 4.7, reviews: 115,
         shortDesc:'أنابيب PPR مقاومة للحرارة لمياه الشرب والتدفئة.',
         fullDesc:'أنابيب البولي بروبيلين المقاومة للحرارة (PPR) الأمثل لتمديدات مياه الشرب والمياه الحارة وأنظمة التدفئة. تتميز بعمر افتراضي يتجاوز 50 سنة.',
         price: 42, minOrder: 30,
@@ -857,21 +1072,67 @@ const quoteCount = computed(() => quoteItems.value.length);
     function openModal(p) { selectedProduct.value = p; }
 
     function addToQuote(p) {
-  quoteItems.value.push(p);
-  notifMsg.value = `✅ تم إضافة "${p.name}" لطلب العرض`;
-  notifShow.value = true;
-  setTimeout(() => { notifShow.value = false; }, 3000);
-}
+      quoteItems.value.push(p);
+      localStorage.setItem('polytech_quote', JSON.stringify(quoteItems.value.map(i => i.id)));
+      notifMsg.value = `✅ تم إضافة "${p.name}" لطلب العرض`;
+      notifShow.value = true;
+      setTimeout(() => { notifShow.value = false; }, 3000);
+    }
+
+    function removeFromQuote(idx) {
+      const removed = quoteItems.value[idx];
+      quoteItems.value.splice(idx, 1);
+      localStorage.setItem('polytech_quote', JSON.stringify(quoteItems.value.map(i => i.id)));
+      notifMsg.value = `🗑 تم إزالة "${removed.name}"`;
+      notifShow.value = true;
+      setTimeout(() => { notifShow.value = false; }, 3000);
+    }
+
+    function submitQuote() {
+      notifMsg.value = '✅ تم إرسال طلب عرض السعر بنجاح!';
+      notifShow.value = true;
+      quoteItems.value = [];
+      localStorage.removeItem('polytech_quote');
+      showDrawer.value = false;
+      setTimeout(() => { notifShow.value = false; }, 3000);
+    }
+
+    // Keyboard: ESC closes modal and drawer
+    onMounted(() => {
+      const savedDark = localStorage.getItem('polytech_dark');
+      if (savedDark === '1') {
+        isDark.value = true;
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      const savedQuote = localStorage.getItem('polytech_quote');
+      if (savedQuote) {
+        try {
+          const ids = JSON.parse(savedQuote);
+          ids.forEach(id => {
+            const found = products.value.find(p => p.id === id);
+            if (found) quoteItems.value.push(found);
+          });
+        } catch(e) {}
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          selectedProduct.value = null;
+          showDrawer.value = false;
+        }
+      });
+    });
 
     return {
       search, activeCategory, sortBy, viewMode,
       selectedProduct, notifShow, notifMsg,
       products, categories, filteredProducts, hasFilters,
-      resetFilters, openModal, addToQuote
+      resetFilters, openModal, addToQuote,
+      quoteItems, quoteCount, quoteTotal, showDrawer,
+      removeFromQuote, submitQuote,
+      isDark, toggleDark
     };
   }
 }).mount('#app');
 </script>
 </body>
 </html>
-
